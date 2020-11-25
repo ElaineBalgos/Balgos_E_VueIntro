@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Vue</title>
+
+    <link rel="stylesheet" href=css/main.css>
+    
+    <!-- Link from vuejs.org -->
+    <!-- CDN for prototype / learning purposes -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+     <!-- needs reference inside the wrapper with an ID-->
+    <main id="app">
+         <!-- @click / v-on:click are the same -->
+        <h1 @click="clickHeader">{{ message }}</h1>
+        <p>{{ anotherMessage }}</p>
+
+        <!-- show the prof data in profs array -->
+        <!-- setting up the template -->
+        <ul>
+            <li v-for="prof in professors">
+                <p>Prof Name: {{ prof.name }}, Role: {{ prof.role }}</p>
+                <a href="" class="remove-prof" @click.prevent="removeProf(prof)" v-bind:class="{'prof-button-modifier' : removeAformat}">Remove {{ prof.name}}</a> 
+            </li>
+        </ul>
+
+        <section class="bio-data" v-bind:class="{'show-bio' : showBioData}">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa natus officiis dolore veniam incidunt et ullam. Tempora quam eligendi commodi ipsum laborum? Porro, laudantium exercitationem ratione odit provident mollitia harum pariatur accusamus officiis assumenda facere, quos quam earum minus enim suscipit! Aliquam reprehenderit reiciendis suscipit deleniti obcaecati ex cumque magnam.
+            </p>
+        </section>
+    </main>
+</body>
+<script src="js/main.js" type="module"></script>
+</html>
